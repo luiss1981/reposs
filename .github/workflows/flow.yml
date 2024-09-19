@@ -22,6 +22,13 @@ jobs:
             - name: Run test
               run : |
                 python test.py
+            - name: Deploy
+            if: success()
+            run: |
+                echo "Test passed"
+            run: |
+                echo "Desplegando en servidor de producción"
+            
 
         
 
