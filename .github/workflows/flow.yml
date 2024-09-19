@@ -30,6 +30,14 @@ jobs:
             - name: Docker hub
               run: |
                 echo "${{ secrets.DOCKER_HUB_PASS }}" | docker login -u "${{ secrets.DOCKER_HUB_USER }}" --password-stdin 
+            # creacion de la imagen
+            - name: Build image
+              run: |
+                docker build -t luisvega1981/python-app:latest .
+            # push la imagen
+            - name: Push image
+              run: |
+                docker push luisvega1981/python-app:latest
             - name: Deploy
               if: success()
               run: |
