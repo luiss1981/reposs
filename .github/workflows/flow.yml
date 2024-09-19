@@ -27,6 +27,9 @@ jobs:
             - name: Run test
               run : |
                 python test.py
+            - name: Docker hub
+              run: |
+                echo "${{ secrets.DOCKER_HUB_USER }}" | docker login -u "${{ secrets.DOCKER_HUB_USER }}" --password-stdin 
             - name: Deploy
               if: success()
               run: |
