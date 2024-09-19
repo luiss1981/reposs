@@ -25,7 +25,11 @@ jobs:
             - name: Deploy
               if: success()
               run: |
-                echo "Deploying to production server"
+                echo "Deployed successfully"
+            - name: Deploy failure
+              if: failure()
+              run: |
+                 echo "Deploy failed"
         
 
 
